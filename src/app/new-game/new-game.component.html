@@ -1,0 +1,40 @@
+<div class="componentContainer">
+  <button (click)="onClickRollBtn(isNewActive)"> {{(isNewActive) ? 'New Turn': 'Roll Dice'}}</button>
+  <br/>
+  <span>Die 1: {{currentRoll[0].value}} || locked: {{currentRoll[0].locked}}</span>
+  <br/>
+  <span>Die 2: {{currentRoll[1].value}} || locked: {{currentRoll[1].locked}}</span>
+  <br/>
+  <span>Die 3: {{currentRoll[2].value}} || locked: {{currentRoll[2].locked}}</span>
+  <br/>
+  <span>Die 4: {{currentRoll[3].value}} || locked: {{currentRoll[3].locked}}</span>
+  <br/>
+  <span>Die 5: {{currentRoll[4].value}} || locked: {{currentRoll[4].locked}}</span>
+  <br/>
+
+  <button (click)="toggleLock(0)">{{(currentRoll[0].locked) ? 'Unlock Die 1' : 'Lock Die 1'}}</button>
+  <button (click)="toggleLock(1)">{{(currentRoll[1].locked) ? 'Unlock Die 2' : 'Lock Die 2'}}</button>
+  <button (click)="toggleLock(2)">{{(currentRoll[2].locked) ? 'Unlock Die 3' : 'Lock Die 3'}}</button>
+  <button (click)="toggleLock(3)">{{(currentRoll[3].locked) ? 'Unlock Die 4' : 'Lock Die 4'}}</button>
+  <button (click)="toggleLock(4)">{{(currentRoll[4].locked) ? 'Unlock Die 5' : 'Lock Die 5'}}</button>
+
+  <br/>
+
+  <button *ngIf="!isNewActive" (click)="endTurn()">End Turn</button>
+
+  <div>
+      <ul>
+          <li *ngFor="let turn of previousRolls">
+              <span>Die 1: {{turn[0].value}}</span>
+              <br/>
+              <span>Die 2: {{turn[1].value}}</span>
+              <br/>
+              <span>Die 3: {{turn[2].value}}</span>
+              <br/>
+              <span>Die 4: {{turn[3].value}}</span>
+              <br/>
+              <span>Die 5: {{turn[4].value}}</span>
+          </li>
+      </ul>
+  </div>
+</div>
